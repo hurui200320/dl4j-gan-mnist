@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'application'
+}
+
+group 'info.skyblond.dl4j'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'info.skyblond.dl4j.gan.mnist.MainKt'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10"
+    testImplementation "org.junit.jupiter:junit-jupiter:5.6.2"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.madgag:animated-gif-lib:1.4'
+
+    implementation 'org.deeplearning4j:deeplearning4j-core:1.0.0-beta7'
+    implementation 'org.deeplearning4j:deeplearning4j-ui:1.0.0-beta7'
+    implementation 'org.deeplearning4j:deeplearning4j-parallel-wrapper:1.0.0-beta7'
+
+    implementation 'org.nd4j:nd4j-cuda-10.2-platform:1.0.0-beta7'
+    implementation 'org.deeplearning4j:deeplearning4j-cuda-10.2:1.0.0-beta7'
+//    implementation 'org.nd4j:nd4j-native:1.0.0-beta7:linux-x86_64-avx2'
+//    implementation 'org.nd4j:nd4j-native:1.0.0-beta7:windows-x86_64-avx2'
+//    implementation 'org.nd4j:nd4j-native-platform:1.0.0-beta7'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "11"
+}
+test {
+    useJUnitPlatform()
+}
